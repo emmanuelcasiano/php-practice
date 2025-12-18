@@ -1,0 +1,36 @@
+# Composer vendor directory
+# this is normal ignore
+# /vendor/
+
+# Git will ignore all vendor folders in all projects, no matter how deep
+**/vendor/
+
+# Composer lock file (ignore if you're making a library; commit for apps)
+# composer.lock
+
+# PHPStorm / JetBrains IDE
+.idea/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+*.tmp
+
+# Cache (if your project has it)
+cache/
+
+#Personal notes
+# ignore in root folder
+notes.txt
+# ignore in all subfolders
+**/notes.txt
+
