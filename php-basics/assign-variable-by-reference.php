@@ -18,16 +18,16 @@
 
 
 
-// $original_var = 10;
-// $reference_var = &$original_var; // $reference_var is now an alias of $original_var
+$original_var = 10;
+$reference_var = &$original_var; // $reference_var is now an alias of $original_var
 
-// echo "$original_var $reference_var\n"; // Output: 10 10
+echo "$original_var $reference_var\n"; // Output: 10 10
 
-// $reference_var = 20; // Modifying the reference variable
-// echo "$original_var $reference_var\n"; // Output: 20 20
+$reference_var = 20; // Modifying the reference variable
+echo "$original_var $reference_var\n"; // Output: 20 20
 
-// $original_var = 30; // Modifying the original variable
-// echo "$original_var $reference_var\n"; // Output: 30 30
+$original_var = 30; // Modifying the original variable
+echo "$original_var $reference_var\n"; // Output: 30 30
 
 
 
@@ -42,12 +42,6 @@
 
 
 
-// $firstName = "EC";
+$firstName = "EC";
 
-// echo "Hello {$firstName}";
-
-// define('TEST', 'yes it is test');
-
-// echo DEFINED('TEST');
-
-echo PHP_VERSION;
+echo "Hello {$firstName}";
