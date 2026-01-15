@@ -16,12 +16,14 @@ $employees = $employee->getAll();
 
     <h1>Employees</h1>
     <a href="create.php">➕ Add Employee</a>
+    <a href="departments.php">💼 View Departments</a>
 
     <table>
         <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Position</th>
+            <th>Department</th>
             <th>Actions</th>
         </tr>
         <?php foreach ($employees as $emp): ?>
@@ -29,6 +31,7 @@ $employees = $employee->getAll();
                 <td><?= htmlspecialchars($emp['name']) ?></td>
                 <td><?= htmlspecialchars($emp['email']) ?></td>
                 <td><?= htmlspecialchars($emp['position']) ?></td>
+                <td><?= htmlspecialchars($emp['department']) . " department" ?></td>
                 <td>
                     <a href="edit.php?id=<?= $emp['id'] ?>">Edit</a>
                     <a href="delete.php?id=<?= $emp['id'] ?>" onclick="return confirm('Delete?')">Delete</a>
