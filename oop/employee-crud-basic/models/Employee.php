@@ -14,7 +14,13 @@ class Employee
 
     public function getAll()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM {$this->table}");
+        $sql = "
+            SELECT e.*, d.name AS department
+            FROM {$this->table} e
+            JOIN departments d ON e.department_id = d.id
+        ";
+
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -28,16 +34,16 @@ class Employee
 
     public function create($data)
     {
-        $sql = "INSERT INTO {$this->table} (name, email, position) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO {$this->table} (department_id, name, email, position) VALUES (?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$data['name'], $data['email'], $data['position']]);
+        return $stmt->execute([$data['department_id'], $data['name'], $data['email'], $data['position']]);
     }
 
     public function update($id, $data)
     {
-        $sql = "UPDATE {$this->table} SET name = ?, email = ?, position = ? WHERE id = ?";
+        $sql = "UPDATE {$this->table} SET department_id = ?, name = ?, email = ?, position = ? WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$data['name'], $data['email'], $data['position'], $id]);
+        return $stmt->execute([$data['department_id'], $data['name'], $data['email'], $data['position'], $id]);
     }
 
     public function delete($id)
