@@ -10,6 +10,7 @@ $departments = $dept->getAll();
 
 <h1>Departments</h1>
 <a href="department_create.php">Add Department</a>
+<a href="index.php">Home</a>
 
 <table>
     <tr>
